@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -51,7 +52,7 @@ public class SAFActivity extends AppCompatActivity implements View.OnClickListen
                 //文档需要是可以打开的
                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                 //指定文档的minitype为text类型
-                intent.setType("text/*");
+                intent.setType("*/*");
                 //是否支持多选，默认不支持
                 intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,false);
                 startActivityForResult(intent, OPEN_DOCUMENT_CODE);
@@ -159,6 +160,7 @@ public class SAFActivity extends AppCompatActivity implements View.OnClickListen
        DocumentFile  mRoot = DocumentFile.fromTreeUri(this, treeUri);
         //显示结果toast
 
+
         showInfo.setText(" open tree uri "+treeUri);
     }
 
@@ -167,26 +169,15 @@ public class SAFActivity extends AppCompatActivity implements View.OnClickListen
         if(data==null){
             return;
         }
-        OutputStream os = null;
         try {
-            String name = "123";
             String text = "创建文件的内容";
             Uri path = data.getData();
-            //根据SAF返回的文档树uri，创建根Document
-            DocumentFile root = DocumentFile.fromTreeUri(this,path);
-            //在根目录下，查找名为handleCreateDocument的子目录
-            DocumentFile dpath = root.findFile("handleCreateDocument");
-            //如果该子目录不存在，则创建
-            if(dpath==null) {
-                dpath = root.createDirectory("handleCreateDocument");
-            }
-            //在handleCreateDocument子目录下，创建一个text类型的Document文件
-            DocumentFile dfile = dpath.createFile("text/*",name);
             //获取该Document的输入流，并写入数据
-            os = getContentResolver().openOutputStream(dfile.getUri());
+            OutputStream  os = getContentResolver().openOutputStream(path);
             os.write(text.getBytes());
-            showInfo.setText(" create document succeed "+dfile.getUri());
+            showInfo.setText(" create document succeed "+path);
         }catch (Exception e){
+            e.printStackTrace();
             showInfo.setText(" create document fail "+e.toString());
         }finally {
 
