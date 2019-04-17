@@ -5,13 +5,11 @@ import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.graphics.drawable.Icon;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -63,7 +61,6 @@ public class ShortCutActivity extends AppCompatActivity implements View.OnClickL
             //动态添加并且在桌面创建了快捷方式，删除之前，先disable一下.  或者判断
             List<ShortcutInfo> shortcutInfos = shortcutManager.getPinnedShortcuts();
 
-
             for(ShortcutInfo si : shortcutInfos){
                 if(si.getId().equals("shortcut")){
                     shortcutManager.disableShortcuts(Arrays.asList(new String[]{"shortcut"}));
@@ -72,7 +69,6 @@ public class ShortCutActivity extends AppCompatActivity implements View.OnClickL
             shortcutManager.removeDynamicShortcuts(Arrays.asList(new String[]{"shortcut"}));
 
             Toast.makeText(ShortCutActivity.this,"共" + shortcutInfos.size() +"个桌面快捷方式",Toast.LENGTH_SHORT).show();
-
 
         }
     }

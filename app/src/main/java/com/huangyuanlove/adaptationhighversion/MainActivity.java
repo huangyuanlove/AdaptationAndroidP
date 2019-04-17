@@ -12,7 +12,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -103,7 +102,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (shouldShowRequestPermissionRationale(permissions[0])) {
                         //用户只点击了禁止，没有选择不再提示
                         Toast.makeText(MainActivity.this, "用户禁止了" + permission + "权限", Toast.LENGTH_SHORT).show();
-
 
                     } else {
 

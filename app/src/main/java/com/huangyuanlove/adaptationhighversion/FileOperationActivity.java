@@ -1,8 +1,9 @@
 package com.huangyuanlove.adaptationhighversion;
 
+import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -25,6 +26,38 @@ public class FileOperationActivity extends AppCompatActivity implements View.OnL
         findViewById(R.id.public_file).setOnClickListener(this);
         findViewById(R.id.public_index_file).setOnClickListener(this);
         findViewById(R.id.external_private_file).setOnClickListener(this);
+
+        Log.e("filePath",getFilesDir().getPath());
+        Log.e("filePath",getCacheDir().getPath());
+        Log.e("filePath",getExternalCacheDir().getPath());
+        Log.e("filePath",getExternalFilesDir(null).getPath());
+        Log.e("filePath",Environment.getExternalStorageDirectory().getPath());
+        Log.e("filePath",Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getPath());
+
+
+        try{
+            File privateCachedFile = new File(getCacheDir().getPath() +"/privateCachedFile.txt");
+            if(!privateCachedFile.exists()){
+                privateCachedFile.createNewFile();
+            }
+
+            Log.e("privateCachedFile",privateCachedFile.getPath());
+
+
+            File externalCacheFile =  new File(  getExternalCacheDir().getPath() +"/externalCacheFile.txt" );
+            if(!externalCacheFile.exists()){
+                externalCacheFile.createNewFile();
+            }
+
+            Log.e("externalCacheFile",externalCacheFile.getPath());
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+
     }
 
     @Override
@@ -55,7 +88,7 @@ public class FileOperationActivity extends AppCompatActivity implements View.OnL
                 try {
                     //需要申请权限
                     String externalStorageFilePath = Environment.getExternalStorageDirectory().getPath();
-                    File externalFile = new File(externalStorageFilePath + "/publicFile.txt");
+                    File externalFile = new File(externalStorageFilePath + "/externalFile.txt");
                     if (!externalFile.exists()) {
                         externalFile.createNewFile();
                     }
