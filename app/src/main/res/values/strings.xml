@@ -13,4 +13,7 @@
 
     <string name="saf">SAF</string>
     <string name="saf_example">文件存储框架</string>
+
+    <string name="shortcut">快捷方式</string>
+    <string name="shortcut_example">快捷方式</string>
 </resources>

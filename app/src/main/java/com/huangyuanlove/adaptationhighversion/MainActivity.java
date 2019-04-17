@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.saf).setOnClickListener(this);
         findViewById(R.id.notification).setOnClickListener(this);
         findViewById(R.id.request_permission).setOnClickListener(this);
+        findViewById(R.id.shortcut).setOnClickListener(this);
 
     }
 
@@ -67,20 +68,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(MainActivity.this, NotificationActivity.class));
                 break;
             case R.id.request_permission:
-
-
-                String[] permissions = new String[]{Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE};
-
-               requestPermissions(permissions,REQUEST_PERMISSION_CAMERA);
-
-
-
-//                if (checkPermission(Manifest.permission.CAMERA) || Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-//                    Toast.makeText(MainActivity.this, "相机权限", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_PERMISSION_CAMERA);
-//                }
-
+                if (checkPermission(Manifest.permission.CAMERA) || Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                    Toast.makeText(MainActivity.this, "相机权限", Toast.LENGTH_SHORT).show();
+                } else {
+                    requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_PERMISSION_CAMERA);
+                }
+                break;
+            case R.id.shortcut:
+                startActivity(new Intent(MainActivity.this, ShortCutActivity.class));
                 break;
             default:
 
@@ -93,8 +88,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(permissions.length <= 0 || grantResults.length<=0){
-            return ;
+        if (permissions.length <= 0 || grantResults.length <= 0) {
+            return;
         }
 
 

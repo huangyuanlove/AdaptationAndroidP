@@ -14,11 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NotificationActivity"></activity>
+        <activity android:name=".ShortCutActivity"></activity>
+        <activity android:name=".NotificationActivity" />
         <activity android:name=".SAFActivity" />
         <activity android:name=".TakePhotoOrChoosePhotoActivity" />
-
-
         <activity android:name=".FileOperationActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
