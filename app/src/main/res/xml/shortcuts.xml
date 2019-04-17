@@ -1,0 +1,53 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher_round"
+        android:shortcutDisabledMessage="@string/permission_deny"
+        android:shortcutId="camera"
+        android:shortcutLongLabel="@string/take_photo_or_choose_image"
+        android:shortcutShortLabel="@string/camera">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.huangyuanlove.adaptationhighversion.TakePhotoOrChoosePhotoActivity"
+            android:targetPackage="com.huangyuanlove.adaptationhighversion" />
+    </shortcut>
+
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher_round"
+        android:shortcutDisabledMessage="@string/permission_deny"
+        android:shortcutId="about_file"
+        android:shortcutLongLabel="@string/file_example"
+        android:shortcutShortLabel="@string/file">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.huangyuanlove.adaptationhighversion.FileOperationActivity"
+            android:targetPackage="com.huangyuanlove.adaptationhighversion" />
+    </shortcut>
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher_round"
+        android:shortcutDisabledMessage="@string/permission_deny"
+        android:shortcutId="notification_example"
+        android:shortcutLongLabel="@string/notification_example"
+        android:shortcutShortLabel="@string/notification">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.huangyuanlove.adaptationhighversion.NotificationActivity"
+            android:targetPackage="com.huangyuanlove.adaptationhighversion" />
+    </shortcut>
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher_round"
+        android:shortcutDisabledMessage="@string/permission_deny"
+        android:shortcutId="saf_example"
+        android:shortcutLongLabel="@string/saf_example"
+        android:shortcutShortLabel="@string/saf">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.huangyuanlove.adaptationhighversion.SAFActivity"
+            android:targetPackage="com.huangyuanlove.adaptationhighversion" />
+    </shortcut>
+</shortcuts>

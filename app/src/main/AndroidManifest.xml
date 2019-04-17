@@ -17,6 +17,8 @@
         <activity android:name=".NotificationActivity"></activity>
         <activity android:name=".SAFActivity" />
         <activity android:name=".TakePhotoOrChoosePhotoActivity" />
+
+
         <activity android:name=".FileOperationActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -25,6 +27,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
 
         <provider
